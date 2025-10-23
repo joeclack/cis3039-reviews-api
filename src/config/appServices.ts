@@ -9,12 +9,11 @@ import type { ReviewRepository } from '../domain/review-repo';
 import { addReview } from '../app/add-review';
 import { listReviews } from '../app/list-reviews';
 
-// Hardwired Cosmos DB options for local development/testing
 const COSMOS_OPTIONS: CosmosReviewRepoOptions = {
-  endpoint: 'https://reviews-lab-ab47-cosmos-uksouth.documents.azure.com:443/',
-  databaseId: 'reviews-db',
-  containerId: 'reviews',
-  key: process.env.COSMOS_KEY || '',
+  endpoint: process.env.COSMOS_ENDPOINT,
+  databaseId: process.env.COSMOS_DATABASE_ID,
+  containerId: process.env.COSMOS_CONTAINER_ID,
+  key: process.env.COSMOS_KEY,
 };
 
 // Singleton instance holder
